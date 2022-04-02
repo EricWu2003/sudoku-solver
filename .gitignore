@@ -1,0 +1,9 @@
+#ignore all files without dots in them
+*
+!/**/
+!*.*
+
+/.vscode
+**/.DS_Store
+**/*.dSYM
+**/*.out
