@@ -35,7 +35,8 @@ void printNumbers(int nums[9][9])
 int findUniqueSolution(int r, int c, int nums[9][9])
 { // this method returns the unique solution to a certain position, 0 if there is no unique solution, and -1 if a contradiction is found (no solution at all)
 
-    if (nums[r][c] != 0){
+    if (nums[r][c] != 0)
+    {
         return nums[r][c];
     }
 
@@ -111,13 +112,21 @@ int main()
                 numbers[row][col] = 0;
     // at this point we are done getting the numbers from the file into numbers.
 
-    printNumbers(numbers); cout << "------" << endl;
-    
-    for (int i = 0; i < 9; i ++){
-        for (int j = 0; j < 9; j ++){
-            cout << findUniqueSolution(i,j,numbers);
+    printNumbers(numbers);
+    cout << "------" << endl;
+
+    for (int count = 0; count < 10; count++)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                numbers[i][j] = findUniqueSolution(i, j, numbers);
+            }
         }
-        cout << endl;
+
+        printNumbers(numbers);
+        cout << "------" << endl;
     }
 
     return 0;
