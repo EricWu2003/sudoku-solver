@@ -115,14 +115,32 @@ int main()
     printNumbers(numbers);
     cout << "------" << endl;
 
-    for (int count = 0; count < 10; count++)
+    while (true)
     {
+        bool changed = false;
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
             {
-                numbers[i][j] = findUniqueSolution(i, j, numbers);
+                if (numbers[i][j] == 0)
+                {
+                    int s = findUniqueSolution(i, j, numbers);
+                    if (s == -1){
+                        cout << "the program has reached a contradiction at (" << i << "," << j << ")" << endl;
+                        return 0;
+                    }
+                    
+                    if (s != 0){
+                        numbers[i][j] = findUniqueSolution(i, j, numbers);
+                        changed = true;
+                    }
+                }
+
             }
+        }
+        if (!changed){
+            cout << "done!" << endl;
+            break;
         }
 
         printNumbers(numbers);
