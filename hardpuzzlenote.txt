@@ -1,0 +1,1 @@
+the six in the rightmost column can be placed because of two sixes in two closest columns
